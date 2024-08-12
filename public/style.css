@@ -1,209 +1,302 @@
 /* 기본 스타일 설정 */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    height: 100vh;
-    background-color: #f0f0f0;
+/* Reset default margin and padding */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Style the header */
+header {
+  position: fixed; /* Fixes the header at the top */
+  top: 0; /* Aligns the header to the top of the viewport */
+  width: 100%; /* Full width */
+  background-color: #f8f8f8; /* Background color for the header */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for depth */
+  z-index: 1000;
+  padding: 10px 20px; /* Adds some padding */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px; /* Set a fixed height for the header */
+}
+.login-wrapper {
+  display: none; /* Hide the form initially */
+  position: fixed; /* Fixed position to keep it centered */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust for perfect centering */
+  background: white;
+  padding: 50px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Add shadow for pop-up effect */
+  z-index: 2000; /* Ensure it appears above other elements */
+  border-radius: 8px; /* Rounded corners for the pop-up */
+}
+.login-wrapper {
+  width: 400px;
+  height: 350px;
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+.login-wrapper > h2 {
+  font-size: 40px;
+  color: #6a24fe;
+  margin-bottom: 20px;
+  text-align: center;
+}
+#login-form > input {
+  width: 100%;
+  height: 48px;
+  padding: 0 10px;
+  box-sizing: border-box;
+  margin-bottom: 16px;
+  border-radius: 6px;
+  background-color: #f8f8f8;
+}
+#login-form > input::placeholder {
+  color: #d2d2d2;
+}
+#login-form > input[type="submit"] {
+  color: #fff;
+  font-size: 16px;
+  background-color: #6a24fe;
+  margin-top: 20px;
+}
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Show the login-wrapper when it has the 'active' class */
+.login-wrapper.active {
+  display: block; /* Display the form when active */
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center; /* Center the image and text vertically */
+}
+
+button a {
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+  margin-left: 8px; /* Space between image and text */
+}
+
+button img {
+  width: 40px; /* Adjust the width of the image */
+  height: 40px; /* Set a fixed height for the image */
+}
+
+h1 span {
+  text-align: center;
+  font-size: 50px;
+  text-transform: uppercase;
+  color: #222;
+  letter-spacing: 1px;
+  font-family: "Playfair Display", serif;
+  font-weight: 400;
+}
+h1 em {
+  font-size: 20px;
+}
+
+p span {
+  margin-right: 30px; /* Align the last item to the right */
+}
+
+.body {
+  font-family: Arial, sans-serif;
+  padding-top: 60px; /* Adds padding equal to the header height */
+  background-color: #f0f0f0;
 }
 
 .container {
-    display: flex;
-    width: 100%;
+  display: flex;
+  width: 100000%;
 }
 
 .sidebar {
-    width: 250px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+  width: 250px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .search-bar {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .search-bar input {
-    flex: 1;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 .search-bar .search-button {
-    background: none;
-    border: none;
-    font-size: 20px;
-    cursor: pointer;
+  line-height: 200px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
 }
 
 .floor-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .floor-item {
-    padding: 10px;
-    background-color: #f8f8f8;
-    margin-bottom: 5px;
-    text-align: center;
-    cursor: pointer;
-    border-radius: 4px;
+  padding: 10px;
+  background-color: #f8f8f8;
+  margin-bottom: 5px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 4px;
 }
 
 .floor-item.active {
-    background-color: #d3c9ff;
-    color: #fff;
+  background-color: #d3c9ff;
+  color: #fff;
 }
 
-.help-request {
-    margin-top: auto;
+.nav {
+  margin-top: auto;
+  padding-top: 20px;
 }
 
-.help-button {
-    width: 100%;
-    padding: 10px;
-    background-color: #f0f0f0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    cursor: pointer;
+.nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
 }
 
-.admin-code {
-    display: flex;
-    gap: 10px;
-    align-items: center;
+.nav li {
+  text-align: center;
 }
 
-.admin-code input {
-    flex: 1;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+.nav img {
+  display: block;
+  margin: 0 auto;
+  width: 50px;
+  height: auto;
 }
 
-.admin-code .confirm-button {
-    padding: 8px 16px;
-    background-color: #333;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+.nav span {
+  display: block;
+  font-size: 12px;
+  color: #333;
+  margin-top: 8px;
 }
 
 .map-container {
-    flex: 1;
-    padding: 20px;
-    display: flex;
-    justify-content: center; /* 가운데 정렬 */
-    align-items: center; /* 가운데 정렬 */
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  justify-content: center; /* 가운데 정렬 */
+  align-items: center; /* 가운데 정렬 */
 }
 
 .map-image {
-    width: 80%; /* 맵 크기를 줄임 */
-    height: auto;
-    max-width: 600px; /* 최대 크기 설정 */
+  width: 80%; /* 맵 크기를 줄임 */
+  height: auto;
+  max-width: 600px; /* 최대 크기 설정 */
 }
 
 /* 기본 스타일 설정 */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    height: 100vh;
-    background-color: #f0f0f0;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  height: 100vh;
+  background-color: #f0f0f0;
 }
 
 .container {
-    display: flex;
-    width: 100%;
+  display: flex;
+  width: 100%;
 }
 
 .sidebar {
-    width: 250px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+  width: 250px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .header {
-    text-align: center;
+  text-align: center;
 }
 
 .menu {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .menu-item {
-    padding: 10px;
-    background-color: #f8f8f8;
-    margin-bottom: 5px;
-    text-align: center;
-    cursor: pointer;
-    border-radius: 4px;
+  padding: 10px;
+  background-color: #f8f8f8;
+  margin-bottom: 5px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 4px;
 }
 
 .menu-item.active {
-    background-color: #d3c9ff;
-    color: #fff;
+  background-color: #d3c9ff;
+  color: #fff;
 }
 
 .floor-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .floor-item {
-    padding: 10px;
-    background-color: #f8f8f8;
-    margin-bottom: 5px;
-    text-align: center;
-    cursor: pointer;
-    border-radius: 4px;
+  padding: 10px;
+  background-color: #f8f8f8;
+  margin-bottom: 5px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 4px;
 }
 
 .content {
-    flex: 1;
-    padding: 20px;
+  flex: 1;
+  padding: 20px;
 }
 
 .content-section {
-    display: none;
+  display: none;
 }
 
 .content-section.active {
-    display: block;
-}
-
-.buttons {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-.node-button {
-    padding: 10px 20px;
-    background-color: #007BFF;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.node-button:hover {
-    background-color: #0056b3;
+  display: block;
 }
